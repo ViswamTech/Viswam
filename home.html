@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viswam Groups&Technologies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <style>
+       
+        /* Other CSS rules... */
+        
+        .logo {
+            /* Paste one of the logo styles here */
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1E88E5 0%, #0D47A1 100%);
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-right: 15px;
+            box-shadow: 0 4px 15px rgba(30, 136, 229, 0.3);
+        }
+        
+        /* Rest of the CSS... */
+ 
+        :root {
+            --primary-color: #121212;
+            --secondary-color: #1E88E5;
+            --accent-color: #00BCD4;
+            --text-color: #E0E0E0;
+            --text-secondary: #9E9E9E;
+            --card-bg: #1E1E1E;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(18, 18, 18, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+        
+        .logo-container:hover {
+            transform: scale(1.02);
+        }
+        
+        .logo {
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin-right: 15px;
+            color: var(--secondary-color);
+            text-shadow: 0 0 10px rgba(30, 136, 229, 0.5);
+        }
+        
+        .logo-text {
+            line-height: 1.2;
+        }
+        
+        .logo-text .main {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .logo-text .sub {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: radial-gradient(circle at 70% 30%, rgba(30, 136, 229, 0.1) 0%, rgba(18, 18, 18, 1) 60%),
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="%231E88E5" stroke-width="0.5" stroke-dasharray="5,5"/></svg>');
+            background-size: cover, 50px 50px;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: 'V';
+            position: absolute;
+            font-size: 40vw;
+            font-weight: bold;
+            color: rgba(30, 136, 229, 0.03);
+            z-index: 0;
+            bottom: -10vw;
+            right: -5vw;
+            line-height: 0.8;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--secondary-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid var(--secondary-color);
+            font-size: 1.1rem;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(30, 136, 229, 0.3);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+            margin-left: 1rem;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        /* Services Section */
+        .section {
+            padding: 6rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary-color), transparent);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .section-title p {
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 2.5rem 2rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(30, 136, 229, 0.3);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: var(--text-secondary);
+        }
+        
+        /* Data Analytics Showcase */
+        .analytics-showcase {
+            background-color: var(--card-bg);
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .analytics-showcase::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 188, 212, 0.2) 0%, transparent 70%);
+            top: -150px;
+            right: -150px;
+            border-radius: 50%;
+        }
+        
+        .analytics-showcase::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(30, 136, 229, 0.2) 0%, transparent 70%);
+            bottom: -100px;
+            left: -100px;
+            border-radius: 50%;
+        }
+        
+        .analytics-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .analytics-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .analytics-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .analytics-text h2 span {
+            color: var(--accent-color);
+        }
+        
+        .analytics-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .analytics-features {
+            margin-top: 2rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-icon {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            margin-top: 0.3rem;
+        }
+        
+        .analytics-visual {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+        
+        .data-visualization {
+            background: linear-gradient(135deg, var(--primary-color), #252525);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .data-point {
+            height: 5px;
+            background-color: var(--accent-color);
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        .data-point::after {
+            content: attr(data-value);
+            position: absolute;
+            right: -50px;
+            top: -8px;
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+        
+        .data-point:nth-child(1) {
+            width: 90%;
+        }
+        
+        .data-point:nth-child(2) {
+            width: 75%;
+        }
+        
+        .data-point:nth-child(3) {
+            width: 82%;
+        }
+        
+        .data-point:nth-child(4) {
+            width: 68%;
+        }
+        
+        .data-point:nth-child(5) {
+            width: 95%;
+        }
+        
+        .data-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Technologies Section */
+        .technologies {
+            padding: 4rem 0;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .tech-item {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(30, 136, 229, 0.3);
+        }
+        
+        .tech-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .tech-item h3 {
+            font-size: 1rem;
+        }
+        
+        /* Case Studies Section */
+        .case-studies {
+            background-color: var(--card-bg);
+            padding: 4rem 0;
+        }
+        
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .case-card {
+            background-color: var(--primary-color);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .case-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .case-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .case-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .case-card:hover .case-image img {
+            transform: scale(1.1);
+        }
+        
+        .case-info {
+            padding: 1.5rem;
+        }
+        
+        .case-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .case-info p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .case-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(30, 136, 229, 0.1) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            border-radius: 50%;
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(30, 136, 229, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-color);
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            background-color: rgba(30, 136, 229, 0.05);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0A0A0A;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            text-align: left;
+        }
+        
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background-color: var(--secondary-color);
+            bottom: -5px;
+            left: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            color: var(--text-color);
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--primary-color);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: left 0.3s;
+                padding: 2rem 0;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .logo-text .main {
+                font-size: 1.2rem;
+            }
+            
+            .logo-text .sub {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+              <div class="logo">
+                  <img src="icon.png" alt="Viswam Groups and Technologies" style="height: 50px;">
+              </div>
+              <div class="logo-text">
+                  <div class="main">VISWAM</div>
+                  <div class="sub">GROUPS AND TECHNOLOGIES</div>
+              </div>
+          </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#analytics">Data Analytics</a></li>
+                    <li><a href="#technologies">Technologies</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transforming Data Into <span>Actionable Insights</span></h1>
+                <p>Viswam Groups and Technologies specializes in advanced data analytics and software solutions that drive business intelligence and digital transformation.</p>
+                <div class="btn-container">
+                    <a href="#services" class="btn">Our Solutions</a>
+                    <a href="#contact" class="btn btn-outline">Schedule Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Specialized Services</h2>
+                <p>We deliver cutting-edge software and analytics solutions tailored to your business needs.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Advanced Data Analytics</h3>
+                    <p>Unlock the power of your data with our comprehensive analytics solutions that reveal hidden patterns and opportunities.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Business Intelligence</h3>
+                    <p>Transform raw data into actionable insights with our customizable BI dashboards and reporting tools.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Predictive Modeling</h3>
+                    <p>Leverage machine learning algorithms to forecast trends and make data-driven decisions with confidence.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Data Warehousing</h3>
+                    <p>Modern data storage solutions designed for scalability, security, and high-performance analytics.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Implement intelligent systems that learn from your data to automate processes and enhance decision-making.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Custom Software Solutions</h3>
+                    <p>Tailored applications designed to solve your unique business challenges and streamline operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Analytics Showcase -->
+    <section class="section analytics-showcase" id="analytics">
+        <div class="container">
+            <div class="analytics-content">
+                <div class="analytics-text">
+                    <h2>Our <span>Data Analytics</span> Approach</h2>
+                    <p>At Viswam Groups and Technologies, we don't just analyze data - we transform it into strategic assets that drive measurable business outcomes.</p>
+                    <div class="analytics-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h3>Comprehensive Data Integration</h3>
+                                <p>Seamlessly connect all your data sources for a unified view of your business.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h3>Real-time Analytics</h3>
+                                <p>Make decisions based on up-to-the-minute data with our streaming analytics capabilities.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h3>Industry-Specific Solutions</h3>
+                                <p>Tailored analytics frameworks designed for your specific vertical and business needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn">Request Analytics Assessment</a>
+                </div>
+                <div class="analytics-visual">
+                    <div class="data-visualization">
+                        <h3>Sample Analytics Performance</h3>
+                        <div class="data-point" data-value=""></div>
+                        <div class="data-point" data-value=""></div>
+                        <div class="data-point" data-value=""></div>
+                        <div class="data-point" data-value=""></div>
+                        <div class="data-point" data-value=""></div>
+                        <div class="data-labels">
+                            <span>Accuracy</span>
+                            <span>Efficiency</span>
+                            <span>Impact</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="section technologies" id="technologies">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Technology Stack</h2>
+                <p>We leverage cutting-edge technologies to deliver robust and scalable data solutions.</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3>Python</h3>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>SQL/NoSQL</h3>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Apache Spark</h3>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <h3>AWS</h3>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3>Google Cloud</h3>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Tableau</h3>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-wave-square"></i>
+                    </div>
+                    <h3>Power BI</h3>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>TensorFlow</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="section case-studies">
+        <div class="container">
+            <div class="section-title">
+                <h2>Data Success Stories</h2>
+                <p>Discover how we've helped clients transform their businesses through data.</p>
+            </div>
+            <div class="case-grid">
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Retail Analytics">
+                    </div>
+                    <div class="case-info">
+                        <h3>Retail Chain Optimization</h3>
+                        <p>Inventory prediction system reduced stockouts by 42% and decreased overstock by 35%.</p>
+                        <div class="case-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">42%</div>
+                                <div class="stat-label">Reduction in Stockouts</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">35%</div>
+                                <div class="stat-label">Less Overstock</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">18%</div>
+                                <div class="stat-label">Revenue Increase</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="https://images.unsplash.com/photo-1535320903710-d993d3d77d29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Healthcare Analytics">
+                    </div>
+                    <div class="case-info">
+                        <h3>Healthcare Predictive Model</h3>
+                        <p>Patient readmission prediction achieved 89% accuracy for regional hospital network.</p>
+                        <div class="case-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">89%</div>
+                                <div class="stat-label">Prediction Accuracy</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">22%</div>
+                                <div class="stat-label">Lower Readmissions</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">$4.2M</div>
+                                <div class="stat-label">Annual Savings</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80" alt="Financial Analytics">
+                    </div>
+                    <div class="case-info">
+                        <h3>Financial Fraud Detection</h3>
+                        <p>Real-time transaction monitoring reduced fraudulent activities by 67% for banking client.</p>
+                        <div class="case-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">67%</div>
+                                <div class="stat-label">Fraud Reduction</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">92%</div>
+                                <div class="stat-label">Detection Rate</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">3.2s</div>
+                                <div class="stat-label">Average Response</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ready to Transform Your Data?</h2>
+                <p>Contact our team of data experts to discuss how we can help your business.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>We're here to answer your questions about our data analytics services and discuss how we can collaborate.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Headquarters</h4>
+                                <p>Manama,Bahrain</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91 8897969658</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>viswamgroupstechnologies@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4>Business Hours</h4>
+                                <p>Sunday-Thursday: 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interest</label>
+                            <select id="service" name="service" class="form-group input">
+                                <option value="">Select a service</option>
+                                <option value="analytics">Data Analytics</option>
+                                <option value="bi">Business Intelligence</option>
+                                <option value="ai">AI/Machine Learning</option>
+                                <option value="software">Custom Software</option>
+                                <option value="consulting">Consulting</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">How Can We Help?</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo-container">
+                        <div class="logo">V</div>
+                        <div class="logo-text">
+                            <div class="main">VISWAM</div>
+                            <div class="sub">GROUPS AND TECHNOLOGIES</div>
+                        </div>
+                    </div>
+                    <p>Advanced data analytics and software solutions for the digital age.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/viswam-groups-and-technologies-vgt-775487372/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://twitter.com/ViswamGroupTech"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#analytics">Data Analytics</a></li>
+                        <li><a href="#technologies">Technologies</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Data Analytics</a></li>
+                        <li><a href="#">Business Intelligence</a></li>
+                        <li><a href="#">Predictive Modeling</a></li>
+                        <li><a href="#">AI Solutions</a></li>
+                        <li><a href="#">Custom Software</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    
+                
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Viswam Groups and Technologies. All Rights Reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically send the form data to your server
+            alert('Thank you for your message! Our team will contact you shortly.');
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
